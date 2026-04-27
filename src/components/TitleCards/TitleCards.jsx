@@ -19,7 +19,11 @@ const TitleCards = ({ title, category }) => {
   };
 
   const handleWheel = (event) => {
-    event.preventDefault;
+    if (!cardsRef.current) {
+      return;
+    }
+
+    event.preventDefault();
     cardsRef.current.scrollLeft += event.deltaY;
   };
 
@@ -31,7 +35,18 @@ const TitleCards = ({ title, category }) => {
       .then((res) => res.json())
       .then((res) => setApiData(res.results))
       .catch((err) => console.error(err));
-    cardsRef.current.addEventListener("wheel", handleWheel);
+
+    const cardsElement = cardsRef.current;
+
+    if (!cardsElement) {
+      return;
+    }
+
+    cardsElement.addEventListener("wheel", handleWheel);
+
+    return () => {
+      cardsElement.removeEventListener("wheel", handleWheel);
+    };
   }, []);
 
   return (
