@@ -29,7 +29,7 @@ const Login = () => {
       </div>) :
     
     <div className="login">
-      <div className="login-logo">FrameFlow</div>
+      <div className="login-logo">FrameFlix</div>
       <div className="login-form">
         <h1>{signState}</h1>
         <form>
