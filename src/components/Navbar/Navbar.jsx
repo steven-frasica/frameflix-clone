@@ -35,7 +35,7 @@ const Navbar = () => {
   return (
     <div ref={navRef} className='navbar'>
       <div className='navbar-left'>
-        <div className='navbar-brand'>FrameFlow</div>
+        <div className='navbar-brand'>FrameFlix</div>
         <ul>
           <li>Home</li>
           <li>TV Shows</li>
